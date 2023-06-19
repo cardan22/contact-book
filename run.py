@@ -15,7 +15,9 @@ SHEET = GSPREAD_CLIENT.open('contact_book')
 
 def display_contact_menu():
     """
-    Displays a welcome message and the menu for the Contact Book.
+    Displays the Contact Book menu and handles the selected option.
+    This function asks the user to choose an option from the menu.
+    If the user wants to add a new contact, it calls the add_contact() function.
     """
     while True:
         print("\nWelcome to Contact Book!\n")
@@ -43,8 +45,12 @@ def display_contact_menu():
 
 def validate_input(prompt, data_type):
     """
-    Validates the user input based on the specified data type.
-    Returns the validated input value.
+    "This function validates user input based on the specified data type 
+    and returns the validated input value. It takes two arguments:
+    prompt (str): The message to display as a prompt.
+    data_type (str): The type of data to validate. Supported values are 'name', 'email', and 'phone'.
+    The function returns a string, which is the validated input value. 
+    If the input value does not match the specified data type, a ValueError is raised."
     """  
     while True:
         value = input(prompt)
@@ -69,8 +75,13 @@ def validate_input(prompt, data_type):
 
 def add_contact():
     """
-    A function that lets the user enter contact details as (name, email, and phone),
+    Allows the user to enter contact details (name, email, and phone), 
     validates the input, and adds the contact to the Google Sheet if confirmed by the user.
+
+    This function prompts the user to enter contact details and validates each input.
+    If the input is valid, it displays the entered details and asks for confirmation 
+    to add the contact. If the user confirms, the contact is added to the Google Sheet.
+    After adding the contact, the function provides options to return to the start or exit the program.
     """
     while True:
         name = validate_input("Enter contact name: ", "name")
