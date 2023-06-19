@@ -116,17 +116,7 @@ def add_contact():
                 print(Fore.RED +"\nInvalid choice. Please try again." + Style.RESET_ALL)
                 continue
             
-            while True:
-                exit_choice = input(Fore.CYAN + "Press 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
-                
-                if exit_choice.upper() == "S":
-                    print("\nStarting from the beginning.\n")
-                    display_contact_menu() 
-                elif exit_choice.upper() == "E":
-                    print("\nGoodbye, I hope to see you soon!\n")
-                    exit()
-                else:
-                    print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)
+            exit_choice()
 
 def search_contact():
     """
@@ -195,22 +185,33 @@ def display_all_contacts():
         else:
             print("\nNo contacts found.")                
 
-        exit_choice = input(Fore.CYAN + "\nPress 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
-        if exit_choice.upper() == "S":
+        exit_choice()
+            
+def exit_choice():
+    """
+    Handles the choice to either return to the start menu or exit the program.
+    
+    This function let the user to choose between returning to the start menu or exiting the program.
+    If the user chooses to return to the start menu, it calls the display_contact_menu() function.
+    If the user chooses to exit the program, it displays a goodbye message and exits.
+    """
+    while True:
+        choice = input(Fore.CYAN + "\nPress 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
+
+        if choice.upper() == "S":
             print("\nStarting from the beginning.\n")
             display_contact_menu() 
-        elif exit_choice.upper() == "E":
-            print("\nGoodbye, I hope to see you soon!\n")
-            return
+        elif choice.upper() == "E":
+            exit_contact_menu()
         else:
             print(Fore.RED + "\nInvalid choice. Please try again." + Style.RESET_ALL)
-            
+
 
 def exit_contact_menu():
     """
     Displays an exit message and exits the program.
     """
-    print("\nGoodbye! Thank you for using Contact Book. Have a great day!\n")
+    print("\nThank you for using Contact Book. Have a great day!\n")
     exit()
 
         
