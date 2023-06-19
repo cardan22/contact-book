@@ -40,7 +40,9 @@ def display_contact_menu():
         if value == 1:
             add_contact()
         elif value == 2:
-            search_contact()    
+            search_contact()
+        elif value == 3:
+            display_all_contacts()    
         else: 
             print("\nThe function is not implemented yet.")        
        
@@ -164,7 +166,42 @@ def search_contact():
             print("\nYou will return to start.")
             display_contact_menu()
         else:
-            print(Fore.RED + "\nInvalid choice. Try again"+ Style.RESET_ALL)    
+            print(Fore.RED + "\nInvalid choice. Try again"+ Style.RESET_ALL)
+
+def display_all_contacts():
+    """
+    Displays all the contacts stored in the Google Sheet.
+
+    This function gets all the contact records from the Google Sheet and shows them in an organized way.
+    If there are contacts available, it prints the name, email, and phone number of each contact.
+    If no contacts are found, it prints a message saying that there are no contacts.
+
+    After showing the contacts, the function gives options to go back to the start or exit the program.
+    """
+    while True:
+        contact_worksheet = SHEET.worksheet("contact")
+        contacts = contact_worksheet.get_all_records()
+
+        if contacts:
+            print("\nA list of all contacts:")
+            print("-------------------------")
+            for contact in contacts:
+                print(f"Name: {contact['Name']}")
+                print(f"Email: {contact['Email']}")
+                print(f"Phone: {contact['Phone']}")
+                print("-------------------------")
+        else:
+            print("\nNo contacts found.")                
+
+        exit_choice = input(Fore.CYAN + "\nPress 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
+        if exit_choice.upper() == "S":
+            print("\nStarting from the beginning.\n")
+            display_contact_menu() 
+        elif exit_choice.upper() == "E":
+            print("\nGoodbye, I hope to see you soon!\n")
+            return
+        else:
+            print(Fore.RED + "\nInvalid choice. Please try again." + Style.RESET_ALL)
 
         
 display_contact_menu()
