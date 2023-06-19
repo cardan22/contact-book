@@ -21,11 +21,11 @@ def display_contact_menu():
     """
     while True:
         print("\nWelcome to Contact Book!\n")
-        print("1. Add a new contact")
-        print("2. Search for a contact")
-        print("3. Display all contacts")
-        print("4. Delete a contact")
-        print("5. Exit\n")
+        print(Fore.CYAN + "1. " + Style.RESET_ALL + "Add a new contact")
+        print(Fore.CYAN + "2. " + Style.RESET_ALL + "Search for a contact")
+        print(Fore.CYAN + "3. " + Style.RESET_ALL + "Display all contacts")
+        print(Fore.CYAN + "4. " + Style.RESET_ALL + "Delete a contact")
+        print(Fore.CYAN + "5. " + Style.RESET_ALL + "Exit\n")
 
         data_str = input (Fore.CYAN + "Please enter your choice (1-5 and press enter): \n" + Style.RESET_ALL)
 
@@ -90,9 +90,9 @@ def add_contact():
     After adding the contact, the function provides options to return to the start or exit the program.
     """
     while True:
-        name = validate_input("Enter contact name: ", "name")
-        email = validate_input("Enter contact email: ", "email")
-        phone = validate_input("Enter contact phone: ", "phone")
+        name = validate_input("Enter contact name:\n", "name")
+        email = validate_input("Enter contact email:\n", "email")
+        phone = validate_input("Enter contact phone:\n", "phone")
 
         new_contact = {'Name': name, 'Email': email, 'Phone': phone}
         contact_worksheet = SHEET.worksheet("contact")
@@ -151,7 +151,7 @@ def search_contact():
         else:
             print("\nNo contacts found.")
 
-        exit_choice = input("\nSearch again? ('Y' for yes or 'N' for no) \n")
+        exit_choice = input("\nSearch again? ('Y' for yes or 'N' for no)\n")
         if exit_choice.upper() == "Y":
             search_contact()
         elif exit_choice.upper() == "N":
@@ -196,7 +196,7 @@ def exit_choice():
     If the user chooses to exit the program, it displays a goodbye message and exits.
     """
     while True:
-        choice = input(Fore.CYAN + "\nPress 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
+        choice = input(Fore.CYAN + "\nPress 'S' to go to start or 'E' to exit:\n" + Style.RESET_ALL)
 
         if choice.upper() == "S":
             print("\nStarting from the beginning.\n")
