@@ -39,6 +39,8 @@ def display_contact_menu():
 
         if value == 1:
             add_contact()
+        elif value == 2:
+            search_contact()    
         else: 
             print("\nThe function is not implemented yet.")        
        
@@ -120,7 +122,49 @@ def add_contact():
                     print("\nGoodbye, I hope to see you soon!\n")
                     exit()
                 else:
-                    print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)        
+                    print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)
+
+def search_contact():
+    """
+    Allows the user to search for a contact in the Google Sheet based on the provided name or email,
+    displaying the matching contacts.
+    
+    This function prompts the user to enter a name or email of the contact they want to search for.
+    It searches the contacts in the Google Sheet and creates a list of matching contacts, if any.
+    After displaying the results, it offers the option to search again or return to the start menu.
+    """
+    while True:
+        search_term = input(Fore.CYAN + "\nEnter name or email of the contact you want to search for:\n" + Style.RESET_ALL)                            
+        contact_worksheet = SHEET.worksheet("contact")
+        contacts = contact_worksheet.get_all_records()
+
+        found_contacts = []
+        for contact in contacts:
+            try:
+                if search_term.lower() in contact["Name"].lower() or search_term.lower() in contact["Email"].lower():
+                    found_contacts.append(contact)
+            except AttributeError:
+                continue    
+        
+        if found_contacts:
+            print("\nFound contacts:")
+            print("-------------------------")
+            for contact in found_contacts:
+                print(f"Name: {contact['Name']}")
+                print(f"Email: {contact['Email']}")
+                print(f"Phone: {contact['Phone']}")
+                print("-------------------------")
+        else:
+            print("\nNo contacts found.")
+
+        exit_choice = input("\nSearch again? ('Y' for yes or 'N' for no) \n")
+        if exit_choice.upper() == "Y":
+            search_contact()
+        elif exit_choice.upper() == "N":
+            print("\nYou will return to start.")
+            display_contact_menu()
+        else:
+            print(Fore.RED + "\nInvalid choice. Try again"+ Style.RESET_ALL)    
 
         
-display_contact_menu() 
+display_contact_menu()
