@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from colorama import init, Fore, Style
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -24,20 +25,20 @@ def display_contact_menu():
         print("4. Delete a contact")
         print("5. Exit\n")
 
-        data_str = input ("Please enter your choice (1-5 and press enter): \n")
+        data_str = input (Fore.CYAN + "Please enter your choice (1-5 and press enter): \n" + Style.RESET_ALL)
 
         try:
             value = int(data_str)
             if not (1 <= value <= 5):
-                raise ValueError(f"\nInvalid value: {value}, Please enter a number from 1 to 5.")
+                raise ValueError(Fore.RED + f"\nInvalid value: {value} Please enter a number from 1 to 5.")
         except ValueError as e:
-            print(f"\n{e} Please try again.\n")
+            print(Fore.RED + f"\n{e} Please try again.\n" + Style.RESET_ALL)
             continue
 
         if value == 1:
             add_contact()
         else: 
-            print("The function is not implemented yet.")        
+            print("\nThe function is not implemented yet.")        
        
 
 def validate_input(prompt, data_type):
@@ -50,18 +51,18 @@ def validate_input(prompt, data_type):
 
         if data_type == "name":
             if not value.replace(" ", "").isalpha():
-                print("\nInvalid name: Only letters and blank spaces are allowed.\n")
+                print(Fore.RED + "\nInvalid name: Only letters and blank spaces are allowed.\n" + Style.RESET_ALL)
                 continue
         elif data_type == "email":
             if "@" not in value:
-                print("\nInvalid email: Must contain the @ symbol.\n")
+                print(Fore.RED + "\nInvalid email: Must contain the @ symbol.\n" + Style.RESET_ALL)
                 continue
         elif data_type == "phone":
             if not value.replace(" ", "").isdigit():
-                print("\nInvalid phone: Only numbers are allowed, and no blank spaces.\n")
+                print(Fore.RED + "\nInvalid phone: Only numbers are allowed, and no blank spaces.\n" + Style.RESET_ALL)
                 continue
         else:
-            print("\nInvalid data type.\n")
+            print(Fore.RED + "\nInvalid data type.\n" + Style.RESET_ALL)
             continue
 
         return value                                  
@@ -87,7 +88,7 @@ def add_contact():
         print("-------------------------")
 
         contact_worksheet.append_row(list(new_contact.values()))
-        print("\nContact added successfully!\n")
+        print(Fore.GREEN + "\nContact added successfully!\n" + Style.RESET_ALL)
         return
 
 
