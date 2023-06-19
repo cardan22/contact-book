@@ -26,45 +26,69 @@ def display_contact_menu():
 
         data_str = input ("Please enter your choice (1-5 and press enter): \n")
 
-        if validate_data(data_str):
+        try:
+            value = int(data_str)
+            if not (1 <= value <= 5):
+                raise ValueError(f"\nInvalid value: {value}, Please enter a number from 1 to 5.")
+        except ValueError as e:
+            print(f"\n{e} Please try again.\n")
             continue
 
-def validate_data(data_str):
-    """
-    Validates user input to ensure it is an integer between 1 and 5.
-    Raises a ValueError if the input is invalid.
-    """
-    try:
-        value = int(data_str)
-        if not (1 <= value <= 5):
-            raise ValueError(f"\nInvalid value: {value}, Please enter a number from 1 to 5.")
-    except ValueError as e:
-        print(f"\n{e} Please try again.\n")
-        return False
+        if value == 1:
+            add_contact()
+        else: 
+            print("The function is not implemented yet.")        
+       
 
-    return True            
+def validate_input(prompt, data_type):
+    """
+    Validates the user input based on the specified data type.
+    Returns the validated input value.
+    """  
+    while True:
+        value = input(prompt)
+
+        if data_type == "name":
+            if not value.replace(" ", "").isalpha():
+                print("\nInvalid name: Only letters and blank spaces are allowed.\n")
+                continue
+        elif data_type == "email":
+            if "@" not in value:
+                print("\nInvalid email: Must contain the @ symbol.\n")
+                continue
+        elif data_type == "phone":
+            if not value.replace(" ", "").isdigit():
+                print("\nInvalid phone: Only numbers are allowed, and no blank spaces.\n")
+                continue
+        else:
+            print("\nInvalid data type.\n")
+            continue
+
+        return value                                  
 
 def add_contact():
     """
     A function that lets the user enter contact details as (name, email, and phone),
     validates the input, and adds the contact to the Google Sheet if confirmed by the user.
     """
-    name = input("Enter contact name: ")
-    email = input("Enter contact email: ")
-    phone = input("Enter contact phone: ")
+    while True:
+        name = validate_input("Enter contact name: ", "name")
+        email = validate_input("Enter contact email: ", "email")
+        phone = validate_input("Enter contact phone: ", "phone")
 
-    new_contact = {'Name': name, 'Email': email, 'Phone': phone}
-    contact_worksheet = SHEET.worksheet("contact")
+        new_contact = {'Name': name, 'Email': email, 'Phone': phone}
+        contact_worksheet = SHEET.worksheet("contact")
 
-    print("\nContact details:")
-    print("-------------------------")
-    print(f"Name: {name}")
-    print(f"Email: {email}")
-    print(f"Phone: {phone}")
-    print("-------------------------")
+        print("\nContact details:")
+        print("-------------------------")
+        print(f"Name: {name}")
+        print(f"Email: {email}")
+        print(f"Phone: {phone}")
+        print("-------------------------")
 
-    contact_worksheet.append_row(list(new_contact.values()))
-    print("\nContact added successfully!\n")
+        contact_worksheet.append_row(list(new_contact.values()))
+        print("\nContact added successfully!\n")
+        return
 
 
-add_contact()    
+display_contact_menu()    
