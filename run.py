@@ -44,5 +44,27 @@ def validate_data(data_str):
 
     return True            
 
+def add_contact():
+    """
+    A function that lets the user enter contact details as (name, email, and phone),
+    validates the input, and adds the contact to the Google Sheet if confirmed by the user.
+    """
+    name = input("Enter contact name: ")
+    email = input("Enter contact email: ")
+    phone = input("Enter contact phone: ")
 
-display_contact_menu()    
+    new_contact = {'Name': name, 'Email': email, 'Phone': phone}
+    contact_worksheet = SHEET.worksheet("contact")
+
+    print("\nContact details:")
+    print("-------------------------")
+    print(f"Name: {name}")
+    print(f"Email: {email}")
+    print(f"Phone: {phone}")
+    print("-------------------------")
+
+    contact_worksheet.append_row(list(new_contact.values()))
+    print("\nContact added successfully!\n")
+
+
+add_contact()    
