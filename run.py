@@ -42,7 +42,9 @@ def display_contact_menu():
         elif value == 2:
             search_contact()
         elif value == 3:
-            display_all_contacts()    
+            display_all_contacts()
+        elif value == 5:
+            exit_contact_menu()    
         else: 
             print("\nThe function is not implemented yet.")        
        
@@ -202,6 +204,14 @@ def display_all_contacts():
             return
         else:
             print(Fore.RED + "\nInvalid choice. Please try again." + Style.RESET_ALL)
+            
+
+def exit_contact_menu():
+    """
+    Displays an exit message and exits the program.
+    """
+    print("\nGoodbye! Thank you for using Contact Book. Have a great day!\n")
+    exit()
 
         
 display_contact_menu()
