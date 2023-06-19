@@ -87,9 +87,29 @@ def add_contact():
         print(f"Phone: {phone}")
         print("-------------------------")
 
-        contact_worksheet.append_row(list(new_contact.values()))
-        print(Fore.GREEN + "\nContact added successfully!\n" + Style.RESET_ALL)
-        return
+        while True:
+            choice = input(Fore.CYAN +"\nDo you want to add the contact? ('Y' for yes or 'N' for no):\n" + Style.RESET_ALL)
 
+            if choice.upper() == "Y":
+                contact_worksheet.append_row(list(new_contact.values()))
+                print(Fore.GREEN + "\nContact added successfully!\n" + Style.RESET_ALL)
+            elif choice.upper() == "N":
+                print("\nThe contact has not been added to the Contact Book.\n") 
+            else:
+                print(Fore.RED +"\nInvalid choice. Please try again." + Style.RESET_ALL)
+                continue
+            
+            while True:
+                exit_choice = input(Fore.CYAN + "Press 'S' to go to start or 'E' to exit: \n" + Style.RESET_ALL)
+                
+                if exit_choice.upper() == "S":
+                    print("\nStarting from the beginning.\n")
+                    display_contact_menu() 
+                elif exit_choice.upper() == "E":
+                    print("\nGoodbye, I hope to see you soon!\n")
+                    exit()
+                else:
+                    print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)        
 
-display_contact_menu()    
+        
+display_contact_menu() 
