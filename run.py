@@ -16,13 +16,33 @@ def display_contact_menu():
     """
     Displays a welcome message and the menu for the Contact Book.
     """
-    print("\nWelcome to Contact Book!\n")
-    print("1. Add a new contact")
-    print("2. Search for a contact")
-    print("3. Display all contacts")
-    print("4. Delete a contact")
-    print("5. Exit\n")
+    while True:
+        print("\nWelcome to Contact Book!\n")
+        print("1. Add a new contact")
+        print("2. Search for a contact")
+        print("3. Display all contacts")
+        print("4. Delete a contact")
+        print("5. Exit\n")
 
-    data_str = input ("Please enter your choice (1-5 and press enter): \n")
+        data_str = input ("Please enter your choice (1-5 and press enter): \n")
+
+        if validate_data(data_str):
+            continue
+
+def validate_data(data_str):
+    """
+    Validates user input to ensure it is an integer between 1 and 5.
+    Raises a ValueError if the input is invalid.
+    """
+    try:
+        value = int(data_str)
+        if not (1 <= value <= 5):
+            raise ValueError(f"\nInvalid value: {value}, Please enter a number from 1 to 5.")
+    except ValueError as e:
+        print(f"\n{e} Please try again.\n")
+        return False
+
+    return True            
+
 
 display_contact_menu()    
