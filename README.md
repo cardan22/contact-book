@@ -33,6 +33,31 @@ The Contact Book aims to provide a user-friendly experience with a simple and in
 * Exit program: Provides an option for users to exit the Contact Book application. This feature allows users to end their session and close the program.
 
 ## Existing Features
+### Contact Book Menu
+    
+The Contact Book application provides a menu with the following options:
+1.	Add a new contact
+2.	Search for a contact
+3.	Display all contacts
+4.	Delete a contact
+5.	Exit
+
+To select an option, enter the corresponding number and press enter. After the selected action, you will remain on the current screen. From there, you can choose another action or enter a new command. If you enter an invalid option, an error message will be displayed.
+
+### Add a new contact:
+This feature allows you to enter details such as name, email, and phone number for a new contact. The input values are validated, and if they are correct, you will be prompted to confirm whether you want to add the contact to the Google Sheet. If you choose to proceed, the contact is added to the Google Sheet.
+
+You will then have the option to return to the main menu or exit the program. If you enter incorrect information, an error message will be displayed, and you will be given the opportunity to re-enter the details.
+
+### Search for a contact:
+Search for a contact: With this feature, you can search for a contact by entering their name or email address. The application searches through the contacts stored in the Google Sheet and displays any matches found. After the search, you can choose to search again or return to the main menu. If you make a mistake while entering the search term, an error message will be shown.
+
+### Display all contacts:
+Display all contacts: This feature allows you to view a list of all the contacts stored in the Google Sheet. The program retrieves the contact information and presents it in an organized manner, including names, email addresses, and phone numbers. If there are no contacts available, a message will be displayed.
+
+### Delete a contact:
+
+### Exit
 
 # Technologies Used
 The Contact Book application is built using the following technologies:
