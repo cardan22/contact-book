@@ -186,7 +186,10 @@ def search_contact():
         found_contacts = []
         for contact in contacts:
             try:
-                if search_term.lower() in contact["Name"].lower() or search_term.lower() in contact["Email"].lower():
+                name_match = search_term.lower() in contact["Name"].lower()
+                email_match = search_term.lower() in contact["Email"].lower()
+
+                if name_match or email_match:
                     found_contacts.append(contact)
             except AttributeError:
                 continue
@@ -270,7 +273,10 @@ def delete_contact():
         found_contacts = []
         for contact in contacts:
             try:
-                if search_term.lower() in contact["Name"].lower() or search_term.lower() in contact["Email"].lower():
+                name_match = search_term.lower() in contact["Name"].lower()
+                email_match = search_term.lower() in contact["Email"].lower()
+
+                if name_match or email_match:
                     found_contacts.append(contact)
             except AttributeError:
                 continue
@@ -302,7 +308,7 @@ def delete_contact():
                     delete_index = int(delete_choice) - 1
                     if not (0 <= delete_index < len(found_contacts)):
                         raise ValueError()
-                        break
+                    break
                 except ValueError:
                     print(
                         Fore.RED +
