@@ -43,10 +43,12 @@ def display_contact_menu():
             search_contact()
         elif value == 3:
             display_all_contacts()
+        elif value == 4:
+            delete_contact()    
         elif value == 5:
             exit_contact_menu()    
         else: 
-            print("\nThe function is not implemented yet.")        
+            print("\nPlease try again.")        
        
 
 def validate_input(prompt, data_type):
@@ -189,6 +191,15 @@ def display_all_contacts():
 
 def delete_contact():
     """
+    Allows the user to delete a contact from the contact book.
+
+    The function prompts the user to enter the name or email of the contact they want to delete.
+    It searches for contacts that match the search term and displays the matching contacts.
+    The user is then asked to choose the contact they want to delete by entering the corresponding number.
+    The chosen contact is displayed, and the user is asked to confirm the deletion.
+    If confirmed, the contact is deleted from the contact book.
+
+    After deleting a contact, the user can choose to search for another contact to delete or return to the main menu.
     """
     while True:
         search_term = input(Fore.CYAN + "\nEnter the name or email of the contact you want to delete: \n" + Style.RESET_ALL)
@@ -213,6 +224,7 @@ def delete_contact():
                 print("-------------------------")
         else:
             print("\nNo contacts found.")
+            continue
 
         while True:
                 delete_choice = input(Fore.CYAN + "\nEnter the number of the contact you want to delete (or 'C' to cancel):\n" + Style.RESET_ALL)
@@ -245,15 +257,17 @@ def delete_contact():
                 print("\nContact deletion canceled.")
             else:
                 print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)
-                                        
-        exit_choice = input(Fore.CYAN + "\nDo you want to search for another contact to delete? ('Y' for yes or 'N' for no):\n" + Style.RESET_ALL)
-        if exit_choice.upper() == "Y":
-            delete_contact()
-        elif exit_choice.upper() == "N":
-            print("\nYou will return to start.")
-            display_contact_menu()
-        else:
-            print(Fore.RED + "\nInvalid choice. Please try again" + Style.RESET_ALL)
+                continue
+            
+            while True:                                
+                exit_choice = input(Fore.CYAN + "\nDo you want to search for another contact to delete? ('Y' for yes or 'N' for no):\n" + Style.RESET_ALL)
+                if exit_choice.upper() == "Y":
+                    delete_contact()
+                elif exit_choice.upper() == "N":
+                    print("\nYou will return to start.")
+                    display_contact_menu()
+                else:
+                    print(Fore.RED + "\nInvalid choice. Please try again" + Style.RESET_ALL)
 
             
 def exit_choice():
@@ -284,4 +298,4 @@ def exit_contact_menu():
     exit()
 
         
-delete_contact()
+display_contact_menu()
