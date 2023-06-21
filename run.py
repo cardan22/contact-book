@@ -158,7 +158,7 @@ def search_contact():
             print("\nYou will return to start.")
             display_contact_menu()
         else:
-            print(Fore.RED + "\nInvalid choice. Try again"+ Style.RESET_ALL)
+            print(Fore.RED + "\nInvalid choice. Try again" + Style.RESET_ALL)
 
 def display_all_contacts():
     """
@@ -186,6 +186,75 @@ def display_all_contacts():
             print("\nNo contacts found.")                
 
         exit_choice()
+
+def delete_contact():
+    """
+    """
+    while True:
+        search_term = input(Fore.CYAN + "\nEnter the name or email of the contact you want to delete: \n" + Style.RESET_ALL)
+        contact_worksheet = SHEET.worksheet("contact")
+        contacts = contact_worksheet.get_all_records()
+
+        found_contacts = []
+        for contact in contacts:
+            try:
+                if search_term.lower() in contact["Name"].lower() or search_term.lower() in contact["Email"].lower():
+                    found_contacts.append(contact)
+            except AttributeError:
+                continue    
+        
+        if found_contacts:
+            print("\nFound contacts:")
+            print("-------------------------")
+            for index, contact in enumerate(found_contacts):
+                print(f"{index + 1}. Name: {contact['Name']}")
+                print(f"Email: {contact['Email']}")
+                print(f"Phone: {contact['Phone']}")
+                print("-------------------------")
+        else:
+            print("\nNo contacts found.")
+
+        while True:
+                delete_choice = input(Fore.CYAN + "\nEnter the number of the contact you want to delete (or 'C' to cancel):\n" + Style.RESET_ALL)
+                if delete_choice.upper() == "C":
+                    print("\nDeletion canceled. You will return to start")
+                    display_contact_menu()
+                else:
+                    try:
+                        delete_index = int(delete_choice) - 1
+                        if not (0 <= delete_index < len(found_contacts)):
+                            raise ValueError()
+                        break
+                    except ValueError:
+                        print(Fore.RED + "\nInvalid choice. Please try again" + Style.RESET_ALL)
+
+        contact_to_delete = found_contacts[delete_index]
+        print("\nContact details:")
+        print("-------------------------")
+        print(f"Name: {contact_to_delete['Name']}")
+        print(f"Email: {contact_to_delete['Email']}")
+        print(f"Phone: {contact_to_delete['Phone']}")
+        print("-------------------------")
+
+        while True:
+            confirm_choice = input(Fore.CYAN + "\nAre you sure you want to delete this contact? ('Y' for yes or 'N' for no):\n" + Style.RESET_ALL)
+            if confirm_choice.upper() == "Y":
+                contact_worksheet.delete_rows(delete_index + 2)
+                print(Fore.GREEN + "\nContact deleted successfully!" + Style.RESET_ALL)
+            elif confirm_choice.upper() == "N":
+                print("\nContact deletion canceled.")
+            else:
+                print(Fore.RED + "\nInvalid choice. Please try again.\n" + Style.RESET_ALL)
+                                        
+        exit_choice = input(Fore.CYAN + "\nDo you want to search for another contact to delete? ('Y' for yes or 'N' for no):\n" + Style.RESET_ALL)
+        if exit_choice.upper() == "Y":
+            delete_contact()
+        elif exit_choice.upper() == "N":
+            print("\nYou will return to start.")
+            display_contact_menu()
+        else:
+            print(Fore.RED + "\nInvalid choice. Please try again" + Style.RESET_ALL)
+
             
 def exit_choice():
     """
@@ -215,4 +284,4 @@ def exit_contact_menu():
     exit()
 
         
-display_contact_menu()
+delete_contact()
