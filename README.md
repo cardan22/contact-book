@@ -1,6 +1,6 @@
 # Contact Book
 
-Link to the project: [Contact Book](xxxx/)
+Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp.com/)
 
 # About
 The Contact Book is a Python application that simplifies contact management for users. Whether it's personal or professional contacts, this application enables users to effortlessly add, search, display, and delete contact information. By using Google Sheets as the backend storage, users can access their contacts from anywhere and ensure secure cloud-based storage.
@@ -24,6 +24,8 @@ The Contact Book aims to provide a user-friendly experience with a simple and in
 * Delete unnecessary or outdated contacts.
 
 ## Flowchart
+
+![Flowchart](/assets/images/contact-book-lucidchart.png)
 
 # Features
 * Add a New Contact: Allows users to enter contact details such as name, email, and phone number, and stores them in the Contact Book.
