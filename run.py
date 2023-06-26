@@ -39,8 +39,8 @@ def display_contact_menu():
             value = int(data_str)
             if not (1 <= value <= 5):
                 raise ValueError(
-                    Fore.RED + f"\nInvalid value:" +
-                    "{value} Please enter a number from 1 to 5."
+                    Fore.RED + f"\nInvalid value: {value}. " +
+                    "Please enter a number from 1 to 5."
                     )
         except ValueError as e:
             print(Fore.RED + f"\n{e} Please try again.\n" + Style.RESET_ALL)
@@ -205,21 +205,23 @@ def search_contact():
         else:
             print("\nNo contacts found.")
 
-        exit_choice = input(
-            Fore.CYAN +
-            "\nSearch again? ('Y' for yes or 'N' for no)\n" + Style.RESET_ALL
-            )
-        if exit_choice.upper() == "Y":
-            search_contact()
-        elif exit_choice.upper() == "N":
-            print("\nYou will return to start.")
-            print("-------------------------")
-            display_contact_menu()
-        else:
-            print(
-                Fore.RED +
-                "\nInvalid choice. Please try again." + Style.RESET_ALL
+        while True:
+            exit_choice = input(
+                Fore.CYAN +
+                "\nSearch again? ('Y' for yes or 'N' for no)\n" +
+                Style.RESET_ALL
                 )
+            if exit_choice.upper() == "Y":
+                search_contact()
+            elif exit_choice.upper() == "N":
+                print("\nYou will return to start.")
+                print("-------------------------")
+                display_contact_menu()
+            else:
+                print(
+                    Fore.RED +
+                    "\nInvalid choice. Please try again." + Style.RESET_ALL
+                    )
 
 
 def display_all_contacts():
