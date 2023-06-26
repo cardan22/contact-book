@@ -2,13 +2,15 @@
 
 Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp.com/)
 
+![Contact Book Mockup](/assets/images/contact-book-mockup.jpg)
+
 # About
 The Contact Book is a Python application that simplifies contact management for users. Whether it's personal or professional contacts, this application enables users to effortlessly add, search, display, and delete contact information. By using Google Sheets as the backend storage, users can access their contacts from anywhere and ensure secure cloud-based storage.
 
 # UX
 
 ## User Demographic
-The Contact Book aims to provide a user-friendly experience with a simple and intuitive interface. The menu-driven design ensures easy navigation through different features and actions. Clear instructions and input validation help users enter accurate contact details. The integration with Google Sheets ensures seamless data storage and retrieval, enhancing the overall user experience.
+The Contact Book aims to provide a user-friendly experience with a simple and intuitive interface. The menu-driven design ensures easy navigation through different features and actions. Clear instructions and input validation make it easier for users to enter correct contact details. The integration with Google Sheets ensures seamless data storage and retrieval, enhancing the overall user experience.
 
 ## User stories
 * As a user, I want to easily add new contacts to my contact list, including their name, email, and phone number.
@@ -114,10 +116,20 @@ d. Tested the prompt "Do you want to search for another contact to delete?('Y' f
 |--|--|
 Created a test case where I chose to exit the program and verified that it exits correctly without throwing any errors. | Pass |
 
-# PEP8 Validator
-PEP8 was used to validate the project and ensure there were no Python errors present.
+### PEP8 Validator
+* PEP8 was used to validate the project and ensure there were no Python errors present.
 
 ![Pep8 validator](/assets/images/contact-book-pep8-verify.png)
+
+### HTML Validator
+* Because I made some changes to the layout.html file, I tested my code to ensure there were no errors.
+
+![HTML validator](/assets/images/html-validator.png)
+
+### CSS Validator
+* The CSS code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), and no errors were found.
+
+![CSS validator](/assets/images/css-validator.png)
 
 # Development and Deployment
 The Contact Book project was developed using the GitPod development environment. Version control and project tracking were managed through regular commits and pushes to GitHub. The initial setup of the GitPod environment was facilitated by a template provided by Code Institute. The live version of the project is deployed on the Heroku platform.
@@ -144,10 +156,12 @@ Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp
 # Credits
 
 ### Images
-* Flowchart: The flowchart image used in the README is created using Lucidchart.
-* Background image: The background image used in the project is sourced from Unsplash. [Link to the image on Unsplash](https://unsplash.com/photos/bGdiuIyN3Rs)
+* Flowchart: The flowchart image used in the README is created using [Lucidchart](https://www.lucidchart.com/).
+* Background image: The background image used in the project is sourced from Unsplash. [Link to the image on Unsplash](https://unsplash.com/photos/bGdiuIyN3Rs).
+* Mockup: The mockup image used in the project is taken from Freepik. [Link to the image on Freepik](https://www.freepik.com/free-psd/computer-screen-white-background-mock-up_1175129.htm#query=desktop%20mockup&position=0&from_view=search&track=ais).
 
 ### Code References
 * The Contact Book project uses the implementation of Google Sheets integration from the Love Sandwiches project by Code Institute. The code and concepts were adapted and modified to suit the requirements of the Contact Book application.
-
+* I used Colorama Python library for color highlighting in the command-line interface. I learned about how to use Colorama by reading [this site](https://pypi.org/project/colorama/).
 * The CSS code for the main background and terminal styling was adapted from the [American Pizza Order System project](https://github.com/useriasminna/american_pizza_order_system).
+* I also received help with the Python code by reading the following websites: [W3Schools](https://www.w3schools.com/) and [Stack Overflow](https://stackoverflow.com/).
