@@ -52,14 +52,16 @@ This feature allows you to enter details such as name, email, and phone number f
 You will then have the option to return to the main menu or exit the program. If you enter incorrect information, an error message will be displayed, and you will be given the opportunity to re-enter the details.
 
 ### Search for a contact:
-Search for a contact: With this feature, you can search for a contact by entering their name or email address. The application searches through the contacts stored in the Google Sheet and displays any matches found. After the search, you can choose to search again or return to the main menu. If you make a mistake while entering the search term, an error message will be shown.
+With this feature, you can search for a contact by entering their name or email address. The application searches through the contacts stored in the Google Sheet and displays any matches found. After the search, you can choose to search again or return to the main menu. If you make a mistake while entering the search term, an error message will be shown.
 
 ### Display all contacts:
-Display all contacts: This feature allows you to view a list of all the contacts stored in the Google Sheet. The program retrieves the contact information and presents it in an organized manner, including names, email addresses, and phone numbers. If there are no contacts available, a message will be displayed.
+This feature allows you to view a list of all the contacts stored in the Google Sheet. The program retrieves the contact information and presents it in an organized manner, including names, email addresses, and phone numbers. If there are no contacts available, a message will be displayed.
 
 ### Delete a contact:
+This feature allows you to remove a contact from the contact list. You can enter the name or email address of the contact you wish to delete. The application will search for the contact in the Google Sheet and prompt you to confirm the deletion. If you choose to proceed, the contact will be removed from the Google Sheet. After deleting a contact, you can choose to search for another contact to delete, return to the main menu, or exit the program.
 
-### Exit
+### Exit:
+This option allows you to exit the Contact Book application. When selected, the program will end your session and display a goodbye message, thanking you for using the Contact Book.
 
 # Technologies Used
 The Contact Book application is built using the following technologies:
@@ -70,6 +72,52 @@ The Contact Book application is built using the following technologies:
 * colorama: A Python library used for color highlighting in the command-line interface.
 
 # Testing
+The manual testing results for the contact book:
+
+| Test menu input: | Result |
+|--|--|
+a. Testing menu input numbers 1-5:
+Entered '1' as the menu input and verified that the program takes me to the "Add Contact" functionality.  | Pass |
+Entered '2' as the menu input and verified that the program takes me to the "Search Contact" functionality. | Pass |
+Entered '3' as the menu input and verified that the program takes me to the "Display All Contacts" functionality. | Pass |
+Entered '4' as the menu input and verified that the program takes me to the "Delete Contact" functionality. | Pass |
+Entered '5' as the menu input and verified that the program takes me to the "Update Contact" functionality.  | Pass |
+b. Entered a number outside the range of 1-5 (e.g., '6', '10', '-1') and verified that an error message is displayed indicating an invalid input, and the program stays at the menu without proceeding | Pass |
+c. Entered a non-numeric character (e.g., 'A', 'x', '#') and verified that an error message is displayed indicating an invalid input, and the program stays at the menu without proceeding.  | Pass |
+
+| Test adding a new contact: | Result |
+|--|--|
+a. Created a test case where I provided valid contact information and verified that the contact is successfully added to Google Sheets. | Pass |
+b. Created a test case where I provided invalid contact information (e.g., invalid name, invalid email address) and verified that the contact is not added and an appropriate error message is displayed.| Pass |
+c. Tested the prompt "Do you want to add the contact?('Y' for yes or 'N' for no)" and verified that it correctly navigates to the appropriate place or displays an appropriate message. | Pass |
+
+| Test searching for a contact: | Result |
+|--|--|
+a. Created a test case where I entered the name of an existing contact and verified that the contact information for the matching contact is displayed correctly. | Pass |
+b. Created a test case where I searched for a contact that does not exist and verified that a message indicating that no contact was found is displayed. | Pass |
+c. Tested the prompt "Do you want to search for another contact?('Y' for yes or 'N' for no)" and verified that it correctly navigates to the appropriate place or displays an appropriate message. | Pass |
+
+| Test removing a contact: | Result |
+|--|--|
+a. Created a test case where I had multiple contacts saved in Google Sheets and verified that all contacts are displayed correctly with their names, email addresses, and phone numbers | Pass |
+b. Created a test case where there were no contacts saved and verified that a message indicating that no contacts were found is displayed.  | Pass |
+c. Tested the prompt "Press 'S' to go to start or 'E' to exit" and verified that it works correctly or displays an appropriate message. | Pass |
+
+| Test displaying all contacts: | Result |
+|--|--|
+a. Created a test case where I entered the name of an existing contact and verified that the contact is successfully removed from Google Sheets. | Pass |
+b. Created a test case where I attempted to remove a contact that does not exist and verified that an error message is displayed. | Pass |
+c. Tested the prompt "Are you sure you want to delete this contact?('Y' for yes or 'N' for no)" and verified that it works correctly or displays an appropriate message.Test the prompt "Are you sure you want to delete this contact?('Y' for yes or 'N' for no)" and verify that it works correctly, or an appropriate message occurs. | Pass |
+d. Tested the prompt "Do you want to search for another contact to delete?('Y' for yes or 'N' for no)" and verified that it works correctly or displays an appropriate error message.  | Pass |
+
+| Test program exit: | Result |
+|--|--|
+Created a test case where I chose to exit the program and verified that it exits correctly without throwing any errors. | Pass |
+
+# PEP8 Validator
+PEP8 was used to validate the project and ensure there were no Python errors present.
+
+(screenshot)
 
 # Development and Deployment
 The Contact Book project was developed using the GitPod development environment. Version control and project tracking were managed through regular commits and pushes to GitHub. The initial setup of the GitPod environment was facilitated by a template provided by Code Institute. The live version of the project is deployed on the Heroku platform.
@@ -89,6 +137,14 @@ To deploy the Contact Book program on [Heroku](https://dashboard.heroku.com/logi
 10. Choose whether you want to enable automatic or manual deploys. With automatic deploys, Heroku will build a new version of the app every time a change is pushed to the repository. Manual deploys require you to manually trigger the deployment process.
 11. Once the deployment is finished, Heroku will provide you with a link to access your deployed app.
 
-By following these steps, you will be able to deploy the Contact Book application on Heroku and make it accessible to users through the provided link.
+By following these steps, you will be able to deploy the Contact Book application on Heroku and make it accessible to users through the provided link. 
+
+Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp.com/)
 
 # Credits
+
+### Images
+* Flowchart: The flowchart image used in the README is created using Lucidchart.
+
+### Code References
+* The Contact Book project uses the implementation of Google Sheets integration from the Love Sandwiches project by Code Institute. The code and concepts were adapted and modified to suit the requirements of the Contact Book application.
