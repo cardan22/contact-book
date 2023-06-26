@@ -145,6 +145,9 @@ Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp
 
 ### Images
 * Flowchart: The flowchart image used in the README is created using Lucidchart.
+* Background image: The background image used in the project is sourced from Unsplash. [Link to the image on Unsplash](https://unsplash.com/photos/bGdiuIyN3Rs)
 
 ### Code References
 * The Contact Book project uses the implementation of Google Sheets integration from the Love Sandwiches project by Code Institute. The code and concepts were adapted and modified to suit the requirements of the Contact Book application.
+
+* The CSS code for the main background and terminal styling was adapted from the [American Pizza Order System project](https://github.com/useriasminna/american_pizza_order_system).
