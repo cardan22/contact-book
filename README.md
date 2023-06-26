@@ -117,7 +117,7 @@ Created a test case where I chose to exit the program and verified that it exits
 # PEP8 Validator
 PEP8 was used to validate the project and ensure there were no Python errors present.
 
-(screenshot)
+![Pep8 validator](/assets/images/contact-book-pep8-verify.png)
 
 # Development and Deployment
 The Contact Book project was developed using the GitPod development environment. Version control and project tracking were managed through regular commits and pushes to GitHub. The initial setup of the GitPod environment was facilitated by a template provided by Code Institute. The live version of the project is deployed on the Heroku platform.
