@@ -205,14 +205,21 @@ def search_contact():
         else:
             print("\nNo contacts found.")
 
-        exit_choice = input("\nSearch again? ('Y' for yes or 'N' for no)\n")
+        exit_choice = input(
+            Fore.CYAN +
+            "\nSearch again? ('Y' for yes or 'N' for no)\n" + Style.RESET_ALL
+            )
         if exit_choice.upper() == "Y":
             search_contact()
         elif exit_choice.upper() == "N":
             print("\nYou will return to start.")
+            print("-------------------------")
             display_contact_menu()
         else:
-            print(Fore.RED + "\nInvalid choice. Try again" + Style.RESET_ALL)
+            print(
+                Fore.RED +
+                "\nInvalid choice. Please try again." + Style.RESET_ALL
+                )
 
 
 def display_all_contacts():
@@ -264,7 +271,7 @@ def delete_contact():
     while True:
         search_term = input(
             Fore.CYAN +
-            "\nEnter the name or email of the contact you want to delete: \n" +
+            "\nEnter the name or email of the contact you want to delete:\n" +
             Style.RESET_ALL
             )
         contact_worksheet = SHEET.worksheet("contact")
@@ -301,7 +308,8 @@ def delete_contact():
                 + Style.RESET_ALL
                 )
             if delete_choice.upper() == "C":
-                print("\nDeletion canceled. You will return to start")
+                print("\nDeletion canceled. You will return to start.")
+                print("-------------------------")
                 display_contact_menu()
             else:
                 try:
@@ -312,7 +320,7 @@ def delete_contact():
                 except ValueError:
                     print(
                         Fore.RED +
-                        "\nInvalid choice. Please try again" +
+                        "\nInvalid choice. Please try again." +
                         Style.RESET_ALL
                         )
 
@@ -357,11 +365,12 @@ def delete_contact():
                     delete_contact()
                 elif exit_choice.upper() == "N":
                     print("\nYou will return to start.")
+                    print("-------------------------")
                     display_contact_menu()
                 else:
                     print(
                         Fore.RED +
-                        "\nInvalid choice. Please try again" + Style.RESET_ALL
+                        "\nInvalid choice. Please try again." + Style.RESET_ALL
                         )
 
 
@@ -381,7 +390,8 @@ def exit_choice():
             )
 
         if choice.upper() == "S":
-            print("\nStarting from the beginning.\n")
+            print("\nYou will return to start.\n")
+            print("-------------------------")
             display_contact_menu()
         elif choice.upper() == "E":
             exit_contact_menu()
