@@ -74,6 +74,11 @@ The Contact Book application is built using the following technologies:
 * colorama: A Python library used for color highlighting in the command-line interface.
 
 # Testing
+
+### List of main issues:
+* Wrong contact was sometimes deleted in the delete_contact() function. The solution was to adjust the code logic to ensure the correct contact is deleted.
+
+### Manual testing
 The manual testing results for the contact book:
 
 | Test menu input: | Result |
@@ -117,7 +122,7 @@ d. Tested the prompt "Do you want to search for another contact to delete?('Y' f
 Created a test case where I chose to exit the program and verified that it exits correctly without throwing any errors. | Pass |
 
 ### PEP8 Validator
-* PEP8 was used to validate the project and ensure there were no Python errors present.
+* [PEP8](https://pep8ci.herokuapp.com/) was used to validate the project and ensure there were no Python errors present.
 
 ![Pep8 validator](/assets/images/contact-book-pep8-verify.png)
 
