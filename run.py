@@ -16,11 +16,25 @@ SHEET = GSPREAD_CLIENT.open('contact_book')
 
 def display_contact_menu():
     """
-    Displays the Contact Book menu and handles the selected option.
-    This function asks the user to choose an option from the menu.
-    If the user wants to add a new contact,
-    it calls the add_contact() function.
+    This function presents the user with a menu and asks them to choose
+    an option.
+
+    The available options are:
+    1. Add a new contact: Calls the add_contact()
+    function to add a new contact.
+    2. Search for a contact: Calls the search_contact() function
+    to search for a contact.
+    3. Display all contacts: Calls the display_all_contacts() function
+    to show all contacts.
+    4. Delete a contact: Calls the delete_contact() function
+    to delete a contact.
+    5. Exit: Calls the exit_contact_menu() function to exit the menu.
+
+    The function keeps running until the user selects option 5 to exit.
+    If the user enters an invalid choice, an error message is displayed and
+    they are prompted to try again.
     """
+
     while True:
         print("\nWelcome to Contact Book!\n")
         print(Fore.CYAN + "1. " + Style.RESET_ALL + "Add a new contact")
@@ -169,7 +183,7 @@ def search_contact():
     on the provided name or email, displaying the matching contacts.
 
     This function prompts the user to enter a name or email of the contact
-    they want to search for.It searches the contacts in the Google Sheet and
+    they want to search for. It searches the contacts in the Google Sheet and
     creates a list of matching contacts, if any.
     After displaying the results, it offers the option to search again
     or return to the start menu.
@@ -406,7 +420,7 @@ def exit_choice():
 
 def exit_contact_menu():
     """
-    Displays an exit message and exits the program.
+    Displays an good bye message and exits the program.
     """
     print("\nThank you for using Contact Book. Have a great day!\n")
     exit()
