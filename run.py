@@ -356,7 +356,8 @@ def delete_contact():
                 Style.RESET_ALL
                 )
             if confirm_choice.upper() == "Y":
-                contact_worksheet.delete_rows(delete_index + 2)
+                delete_row_index = contacts.index(contact_to_delete) + 2
+                contact_worksheet.delete_rows(delete_row_index)
                 print(
                     Fore.GREEN +
                     "\nContact deleted successfully!" + Style.RESET_ALL
