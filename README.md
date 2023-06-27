@@ -140,11 +140,13 @@ Entered '5' as the menu input and verified that the program takes me to the "Upd
 b. Entered a number outside the range of 1-5 (e.g., '6', '10', '-1') and verified that an error message is displayed indicating an invalid input, and the program stays at the menu without proceeding | Pass |
 c. Entered a non-numeric character (e.g., 'A', 'x', '#') and verified that an error message is displayed indicating an invalid input, and the program stays at the menu without proceeding.  | Pass |
 
+
 | Test adding a new contact: | Result |
 |--|--|
 a. Created a test case where I provided valid contact information and verified that the contact is successfully added to Google Sheets. | Pass |
 b. Created a test case where I provided invalid contact information (e.g., invalid name, invalid email address) and verified that the contact is not added and an appropriate error message is displayed.| Pass |
 c. Tested the prompt "Do you want to add the contact?('Y' for yes or 'N' for no)" and verified that it correctly navigates to the appropriate place or displays an appropriate message. | Pass |
+
 
 | Test searching for a contact: | Result |
 |--|--|
@@ -152,18 +154,21 @@ a. Created a test case where I entered the name of an existing contact and verif
 b. Created a test case where I searched for a contact that does not exist and verified that a message indicating that no contact was found is displayed. | Pass |
 c. Tested the prompt "Do you want to search for another contact?('Y' for yes or 'N' for no)" and verified that it correctly navigates to the appropriate place or displays an appropriate message. | Pass |
 
-| Test removing a contact: | Result |
+
+| Test displaying all contacts: | Result |
 |--|--|
 a. Created a test case where I had multiple contacts saved in Google Sheets and verified that all contacts are displayed correctly with their names, email addresses, and phone numbers | Pass |
 b. Created a test case where there were no contacts saved and verified that a message indicating that no contacts were found is displayed.  | Pass |
 c. Tested the prompt "Press 'S' to go to start or 'E' to exit" and verified that it works correctly or displays an appropriate message. | Pass |
 
-| Test displaying all contacts: | Result |
+
+| Test removing a contact: | Result |
 |--|--|
 a. Created a test case where I entered the name of an existing contact and verified that the contact is successfully removed from Google Sheets. | Pass |
 b. Created a test case where I attempted to remove a contact that does not exist and verified that an error message is displayed. | Pass |
-c. Tested the prompt "Are you sure you want to delete this contact?('Y' for yes or 'N' for no)" and verified that it works correctly or displays an appropriate message.Test the prompt "Are you sure you want to delete this contact?('Y' for yes or 'N' for no)" and verify that it works correctly, or an appropriate message occurs. | Pass |
+c. Tested the prompt "Are you sure you want to delete this contact?('Y' for yes or 'N' for no)" and verified that it works correctly or displays an appropriate message. | Pass |
 d. Tested the prompt "Do you want to search for another contact to delete?('Y' for yes or 'N' for no)" and verified that it works correctly or displays an appropriate error message.  | Pass |
+
 
 | Test program exit: | Result |
 |--|--|
