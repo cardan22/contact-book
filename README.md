@@ -146,7 +146,8 @@ c. Entered a non-numeric character (e.g., 'A', 'x', '#') and verified that an er
 a. Created a test case where I provided valid contact information and verified that the contact is successfully added to Google Sheets. | Pass |
 b. Created a test case where I provided invalid contact information (e.g., invalid name, invalid email address) and verified that the contact is not added and an appropriate error message is displayed.| Pass |
 c. Tested the prompt "Do you want to add the contact?('Y' for yes or 'N' for no)" and verified that it correctly navigates to the appropriate place or displays an appropriate message. | Pass |
-
+d. Tested the prompt "Press 'S' to go to start or 'E' to exit" and verified that it works correctly or displays an appropriate message. | Pass |
+ 
 
 | Test searching for a contact: | Result |
 |--|--|
