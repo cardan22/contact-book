@@ -2,7 +2,7 @@
 
 Link to the project: [Contact Book](https://contact--book-ebd067fbca38.herokuapp.com/)
 
-![Contact Book Mockup](/assets/images/contact-book-mockup.jpg)
+![Contact Book Mockup](/assets/images/readme/contact-book-mockup.jpg)
 
 # About
 The Contact Book is a Python application that simplifies contact management for users. Whether it's personal or professional contacts, this application enables users to effortlessly add, search, display, and delete contact information. By using Google Sheets as the backend storage, users can access their contacts from anywhere and ensure secure cloud-based storage.
@@ -27,7 +27,7 @@ The Contact Book aims to provide a user-friendly experience with a simple and in
 
 ## Flowchart
 
-![Flowchart](/assets/images/contact-book-lucidchart.png)
+![Flowchart](/assets/images/readme/contact-book-lucidchart.png)
 
 # Features
 * Add a New Contact: Allows users to enter contact details such as name, email, and phone number, and stores them in the Contact Book.
@@ -47,36 +47,84 @@ The Contact Book application provides a menu with the following options:
 5.	Exit
 
 To select an option, enter the corresponding number and press enter. After the selected action, you will remain on the current screen. From there, you can choose another action or enter a new command. If you enter an invalid option, an error message will be displayed.
+* Contact Book Menu
+![Contact Book Menu](/assets/images/readme/menu.png)
+
+* Error message
+![Error message](/assets/images/readme/menu-error.png)
 
 ### Add a new contact:
 This feature allows you to enter details such as name, email, and phone number for a new contact. The input values are validated, and if they are correct, you will be prompted to confirm whether you want to add the contact to the Google Sheet. If you choose to proceed, the contact is added to the Google Sheet.
 
 You will then have the option to return to the main menu or exit the program. If you enter incorrect information, an error message will be displayed, and you will be given the opportunity to re-enter the details.
+* Add a new contact
+![Add a new contact](/assets/images/readme/add-contact.png)
+
+* Google Sheet with added contact
+![Google Sheet with added contact](/assets/images/readme/contact-gsheet.png)
+
+* Message contact has not been added to Contact Book
+![Message contact has not been added](/assets/images/readme/message-not-add-contact.png)
+
+* Error message
+![Error message](/assets/images/readme/invalid-choice.png)
 
 ### Search for a contact:
 With this feature, you can search for a contact by entering their name or email address. The application searches through the contacts stored in the Google Sheet and displays any matches found. After the search, you can choose to search again or return to the main menu. If you make a mistake while entering the search term, an error message will be shown.
+* Search for a contact
+![Search for a contact](/assets/images/readme/search-contact.png)
+
+* No contacts found
+![No contacts found](/assets/images/readme/no-contacts-found.png)
+
+* Error message
+![Error message](/assets/images/readme/message-search.png)
 
 ### Display all contacts:
 This feature allows you to view a list of all the contacts stored in the Google Sheet. The program retrieves the contact information and presents it in an organized manner, including names, email addresses, and phone numbers. If there are no contacts available, a message will be displayed.
 
+* Display all contacts
+![Display all contacts](/assets/images/readme/show-all-contacts.png)
+
+* No contacts found
+![No contacts found](/assets/images/readme/no-contacts-found.png)
+
+* Error message
+![Error message](/assets/images/readme/invalid-choice.png)
+
 ### Delete a contact:
 This feature allows you to remove a contact from the contact list. You can enter the name or email address of the contact you wish to delete. The application will search for the contact in the Google Sheet and prompt you to confirm the deletion. If you choose to proceed, the contact will be removed from the Google Sheet. After deleting a contact, you can choose to search for another contact to delete, return to the main menu, or exit the program.
+
+* Delete a contact
+![Delete a contact](/assets/images/readme/delete-contact.png)
+
+* Google Sheet with deleted contact
+![Google Sheet with deleted contact](/assets/images/readme/contact-gsheet-delete.png)
+
+* Cancel delete contact
+![Cancel delete contact](/assets/images/readme/cancel-delete.png)
+
+* Error message and cancel delete task
+![Cancel delete contact](/assets/images/readme/message-delete.png)
 
 ### Exit:
 This option allows you to exit the Contact Book application. When selected, the program will end your session and display a goodbye message, thanking you for using the Contact Book.
 
+![Exit Contact Book](/assets/images/readme/exit.png)
+
 # Technologies Used
 The Contact Book application is built using the following technologies:
 
-* Python: The core programming language used for implementing the application logic.
-* gspread: A Python library used for interacting with Google Sheets API.
-* google-auth: A Python library used for authentication with Google APIs.
-* colorama: A Python library used for color highlighting in the command-line interface.
+* [Python](https://www.python.org/): The core programming language used for implementing the application logic.
+* [gspread](https://docs.gspread.org/en/v5.9.0/): A Python library used for interacting with Google Sheets API.
+* [google-auth](https://developers.google.com/identity/protocols/oauth2): A Python library used for authentication with Google APIs.
+* [colorama](https://pypi.org/project/colorama/): A Python library used for color highlighting in the command-line interface.
 
 # Testing
 
 ### List of main issues:
 * Wrong contact was sometimes deleted in the delete_contact() function. The solution was to adjust the code logic to ensure the correct contact is deleted.
+* Leading zero in the beginning of phone numbers sometimes doesn't display. I convert the Google Sheet to plain text format, but it didn't fully resolve the problem. As a result, the issue still remains.
 
 ### Manual testing
 The manual testing results for the contact book:
@@ -124,17 +172,17 @@ Created a test case where I chose to exit the program and verified that it exits
 ### PEP8 Validator
 * [PEP8](https://pep8ci.herokuapp.com/) was used to validate the project and ensure there were no Python errors present.
 
-![Pep8 validator](/assets/images/contact-book-pep8-verify.png)
+![Pep8 validator](/assets/images/readme/contact-book-pep8-verify.png)
 
 ### HTML Validator
 * Because I made some changes to the layout.html file, I tested my code to ensure there were no errors.
 
-![HTML validator](/assets/images/html-validator.png)
+![HTML validator](/assets/images/readme/html-validator.png)
 
 ### CSS Validator
 * The CSS code was validated using the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), and no errors were found.
 
-![CSS validator](/assets/images/css-validator.png)
+![CSS validator](/assets/images/readme/css-validator.png)
 
 # Development and Deployment
 The Contact Book project was developed using the GitPod development environment. Version control and project tracking were managed through regular commits and pushes to GitHub. The initial setup of the GitPod environment was facilitated by a template provided by Code Institute. The live version of the project is deployed on the Heroku platform.
